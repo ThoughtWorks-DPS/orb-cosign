@@ -84,7 +84,7 @@ steps:
       name: Sign oci image and store signature to registry
       command: |
         cosign sign --key << parameters.sign-key >> \
-            <<#parameters.attestations>> << parameters.attestations >> \<</parameters.attestations>>
+            <<#parameters.attestations>> << parameters.attestations >> <</parameters.attestations>> \
             << parameters.registry >>/<< parameters.image >>:<< parameters.tag >>
   - run:
       name: verify signature using public key
