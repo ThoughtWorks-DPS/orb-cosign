@@ -1,0 +1,17 @@
+# src/commands/install.yaml
+
+description: Install linux version of cosign.
+  
+parameters:
+
+  cosign-version:
+    description: version to install
+    type: string
+    default: "v1.8.0"
+
+steps:
+  - run:
+      name: Confirm Docker registry credentials are configured and correct
+      command: |
+        curl -L https://storage.googleapis.com/cosign-releases/<< parameters.cosign-version >>/cosign-linux-amd64 -o cosign
+        chmod +x cosign
