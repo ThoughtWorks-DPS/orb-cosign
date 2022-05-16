@@ -11,7 +11,8 @@ parameters:
 
 steps:
   - run:
-      name: Confirm Docker registry credentials are configured and correct
+      name: Install cosign
       command: |
         curl -L https://storage.googleapis.com/cosign-releases/<< parameters.cosign-version >>/cosign-linux-amd64 -o cosign
         chmod +x cosign
+        cosign version
