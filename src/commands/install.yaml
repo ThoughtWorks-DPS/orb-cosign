@@ -14,5 +14,5 @@ steps:
       name: Install cosign
       command: |
         curl -L https://storage.googleapis.com/cosign-releases/<< parameters.cosign-version >>/cosign-linux-amd64 -o cosign
-        chmod +x cosign
+        chmod +x cosign && sudo mv cosign /usr/local/bin/cosign
         cosign version
