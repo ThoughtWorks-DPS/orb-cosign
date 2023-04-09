@@ -7,7 +7,12 @@ parameters:
   cosign-version:
     description: version to install
     type: string
-    default: "v1.8.0"
+    default: "v2.0.1"    # updated 04-08-2023
+
+  syft-version:
+    description: version to install
+    type: string
+    default: "v0.76.1"    # updated 04-08-2023
 
 steps:
   - run:
@@ -16,3 +21,8 @@ steps:
         curl -L https://storage.googleapis.com/cosign-releases/<< parameters.cosign-version >>/cosign-linux-amd64 -o cosign
         chmod +x cosign && sudo mv cosign /usr/local/bin/cosign
         cosign version
+  - run:
+      name: install syft
+      command: |
+        sudo bash -c "curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin << parameters.syft-version >>"
+        syft version

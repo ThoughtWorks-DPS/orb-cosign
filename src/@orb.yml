@@ -9,7 +9,8 @@ description: |
 
   - install cosign
   - single step sign/verify/push 
-  - must provide public and private keys along withpassphrase
+  - generate software bill of materials using syft and include in signature
+  - must provide public and private keys along with passphrase
   - must provide registry credentials
 
 display:
