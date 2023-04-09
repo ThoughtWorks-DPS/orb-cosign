@@ -9,7 +9,7 @@ description: |
 
   - install cosign
   - single step sign/verify/push 
-  - generate software bill of materials using syft and include in signature
+  - generate software bill of materials using syft push to registry
   - must provide public and private keys along with passphrase
   - must provide registry credentials
 

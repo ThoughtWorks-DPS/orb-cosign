@@ -14,6 +14,11 @@ parameters:
     type: string
     default: "v0.76.1"    # updated 04-08-2023
 
+  oras-version:
+    description: version to install
+    type: string
+    default: "1.0.0"      # updated 04-08-2023
+
 steps:
   - run:
       name: Install cosign
@@ -26,3 +31,11 @@ steps:
       command: |
         sudo bash -c "curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin << parameters.syft-version >>"
         syft version
+  - run:
+      name: install oras
+      command: |
+        curl -LO "https://github.com/oras-project/oras/releases/download/v<< parameters.oras-version >>/oras_<< parameters.oras-version >>_linux_amd64.tar.gz"
+        mkdir -p oras-install
+        tar -zxf oras_<< parameters.oras-version >>_*.tar.gz -C oras-install/
+        sudo mv oras-install/oras /usr/local/bin/
+        rm -rf oras_<< parameters.oras-version >>_*.tar.gz oras-install/
