@@ -12,7 +12,4 @@
 
 See [orb registry](https://circleci.com/developer/orbs/orb/twdps/cosign) for detailed usage examples
 
-Features include:
-
-- install linux version of cosign
-- single step sign/verify
+DEPRECATED. This orb has been deprecated in favor of the twdps/image-provenance orb. The new orb does have similar capabilities but has been reorganized based on production experience and renamed to support alternative tooling for signing and sbom generation within the same orb.
